@@ -1,21 +1,38 @@
 const express = require("express");
-const upload = require("express-fileupload");
+const mongoose = require("mongoose");
+require("dotenv").config();
 const app = express();
+const port = 8000;
 
-app.use(upload());
+const postModel = require("./post.model");
 
-const port = 3000;
+let cors = require("cors");
+app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.use(express.json());
+
+mongoose
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Database connected!"))
+  .catch((err) => console.log(err));
+
+app.get("/", async (req, res) => {
+  const allData = await postModel.find();
+  res.json(allData);
 });
-app.post("/", (req, res) => {
-  if (req.files) {
-    var file = req.files.file;
-    var filename = file.name;
-    console.log(req.files);
-  }
-  res.send("Got a POST request");
+
+app.post("/upload", (req, res) => {
+  const { name, description, image } = req.body;
+  const newPost = new postModel({
+    name,
+    description,
+    image,
+  });
+
+  newPost.save().then(() => res.send("successfully uploaded"));
 });
 
 app.listen(port, () => {

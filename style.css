@@ -1,0 +1,8 @@
+.box{
+    border: 1px solid grey;
+    margin: 3px;
+}
+
+.box img{
+    width: 300px;
+}

@@ -92,13 +92,21 @@ body{
 }
 
 .des{
-    border: 1px dashed crimson;
+    border: 1px dashed black;
     width: 90%;
     border-radius: 5px;
+    background-color: rgb(239, 234, 234);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     color: black;
-    text-align: center;
+    text-align: start;
+    min-height: 50px;
 }
 .des p{
     padding: 5px;
-    font-size: large;
+    font-size: smaller;
+}
+
+
+box i{
+  font-size: larger;
 }

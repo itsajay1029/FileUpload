@@ -59,7 +59,7 @@ btn.addEventListener("click", async (e) => {
       console.log(err);
     });
 
-  showData();
+  fetchData();
 });
 
 // fetch All data and display in the container
@@ -81,7 +81,21 @@ function showData() {
   fetchedData.map((data) => {
     const box = document.createElement("div");
     box.classList.add("box");
-    if (data.image) box.innerHTML += `<img src=${data.image} />`;
+    if (data.image) {
+      const img = document.createElement("img");
+      img.src = data.image;
+      box.appendChild(img);
+
+      const downloadBtn = document.createElement("a");
+      downloadBtn.innerHTML = "Download";
+      let str = data.image.toString();
+      let firstPart = str.substring(0, 48);
+      let secondPart = str.substring(48);
+      let finalString = firstPart + "fl_attachment/" + secondPart;
+      downloadBtn.href = finalString;
+      box.appendChild(downloadBtn);
+    }
+
     if (data.description)
       box.innerHTML += `<div class="des"><p>${data.description}</p></div>`;
     box.innerHTML += `<div class="name"><p><span>${data.name}</span> posted this !</p></div>`;

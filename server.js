@@ -20,12 +20,15 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", async (req, res) => {
-  const allData = await postModel.find();
+  const allData = await (
+    await postModel.find().sort({ updatedAt: -1 })
+  ).reverse();
   res.json(allData);
 });
 
 app.post("/upload", (req, res) => {
   const { name, description, image } = req.body;
+
   const newPost = new postModel({
     name,
     description,

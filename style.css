@@ -1,8 +1,104 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins';
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: crimson;
+}
+  .container{
+    align-items: center;
+    width: 500px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    margin: 20px 0px;
+  }
+
+  .upload h2{
+    text-align: center;
+    color: crimson;
+    text-shadow: 0 0 0 black;
+    margin-bottom: 10px
+  }
+
+  form{
+    padding: 10px;
+    border: 2px dashed crimson;
+    display: flex;
+    flex-direction: column;
+    
+    cursor: pointer;
+    font-family: courier;
+    font-weight: 600;
+  }
+
+  form i{
+    font-size: 20px;
+    color: crimson;
+    
+  
+
+  }
+
+  .unit{
+    display: flex;
+    flex-direction: row;
+  }
+
+  #submitButton{
+    font-family: 'Poppins';
+  }
+    
+
 .box{
     border: 1px solid grey;
-    margin: 3px;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+.box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
 .box img{
-    width: 300px;
+    max-width: 75%;
+    margin: 5px;
+   
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.name{
+    width: 90%;
+}
+.name p{
+    padding: 5px;
+    font-size: small;
+}
+.name span{
+    font-weight: bold;
+}
+
+.des{
+    border: 1px dashed crimson;
+    width: 90%;
+    border-radius: 5px;
+    color: black;
+    text-align: center;
+}
+.des p{
+    padding: 5px;
+    font-size: large;
 }
